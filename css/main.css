@@ -3076,15 +3076,47 @@ body.lang-ar .form-label { left: auto; right: 0; }
   #hero {
     grid-template-columns: 1fr;
     text-align: center;
+    padding: 100px 0 60px;
   }
 
-  .hero-content,
-  .hero-visual { padding: 0 40px; width: 100%; box-sizing: border-box; }
-  .hero-visual { order: -1; }
-  .hero-photo-wrap { width: 280px; height: 340px; margin: 0 auto; }
+  .hero-content {
+    padding: 0 32px;
+    width: 100%;
+    box-sizing: border-box;
+    order: 1;
+  }
+  .hero-visual {
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+    order: -1;
+    margin-bottom: 36px;
+  }
+  .hero-photo-wrap { width: 260px; height: 320px; margin: 0 auto; }
   .hero-greeting { justify-content: center; }
-  .hero-tagline { margin: 0 auto 48px; }
-  .hero-cta { justify-content: center; }
+  .hero-name { font-size: clamp(2rem, 7vw, 3rem); }
+  .hero-tagline { margin: 0 auto 36px; max-width: 320px; }
+
+  /* CTA buttons — stacked vertically */
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-cta .magnetic-wrap { width: 100%; max-width: 280px; }
+  .hero-cta .magnetic-wrap .btn { width: 100%; justify-content: center; }
+  .hero-cta .btn-cv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 0;
+    width: 100%;
+    max-width: 280px;
+    border-bottom: none;
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: var(--radius-sm);
+  }
 
   .about-stats { grid-template-columns: repeat(2, 1fr); }
   .film-card { flex: 0 0 220px; }
@@ -3105,8 +3137,8 @@ body.lang-ar .form-label { left: auto; right: 0; }
   .about-stats { grid-template-columns: 1fr 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; text-align: center; }
-  .hero-photo-wrap { width: 220px; height: 270px; }
-  .hero-content, .hero-visual { padding: 0 24px; }
+  .hero-photo-wrap { width: 230px; height: 290px; }
+  .hero-content { padding: 0 24px; }
   .book-3d-scene { height: 280px; }
   .pl-center { width: 200px; height: 200px; }
   .pl-num { font-size: 5rem; }
@@ -3117,7 +3149,7 @@ body.lang-ar .form-label { left: auto; right: 0; }
   .section-header { margin-bottom: 48px; }
 
   /* Hero */
-  .hero-photo-wrap { width: 180px; height: 220px; }
+  .hero-photo-wrap { width: 200px; height: 250px; }
   #hero { padding-top: 80px; }
 
   /* Preloader — hide sidebars, shrink center on tiny phones */

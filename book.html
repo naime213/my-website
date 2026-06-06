@@ -605,29 +605,43 @@
 
       if (!canvas) return;
 
-      let pdfDoc = null, curPage = 1, rendering = false;
+      let pdfDoc = null, curPage = 1, renderTask = null;
 
       function updateNav() {
-        info.textContent = curPage + " / " + Math.min(pdfDoc ? pdfDoc.numPages : PREVIEW_PAGES, PREVIEW_PAGES);
+        const total = pdfDoc ? Math.min(pdfDoc.numPages, PREVIEW_PAGES) : PREVIEW_PAGES;
+        info.textContent = curPage + " / " + total;
         prevBtn.disabled = curPage <= 1;
-        nextBtn.disabled = curPage >= PREVIEW_PAGES || (pdfDoc && curPage >= pdfDoc.numPages);
+        nextBtn.disabled = curPage >= total;
       }
 
       function renderPage(num) {
-        if (rendering || !pdfDoc) return;
-        rendering = true;
+        if (!pdfDoc) return;
+        // Cancel any in-progress render to allow immediate page switch
+        if (renderTask) { renderTask.cancel(); renderTask = null; }
         loading.style.display = "flex";
+        canvas.style.opacity = "0.4";
         pdfDoc.getPage(num).then(function(page) {
-          const wrapW = wrap.clientWidth || 700;
+          const wrapW = wrap.clientWidth || 720;
           const vp0   = page.getViewport({ scale: 1 });
           const scale = wrapW / vp0.width;
           const vp    = page.getViewport({ scale });
           canvas.width  = vp.width;
           canvas.height = vp.height;
-          page.render({ canvasContext: canvas.getContext("2d"), viewport: vp }).promise.then(function() {
+          renderTask = page.render({ canvasContext: canvas.getContext("2d"), viewport: vp });
+          renderTask.promise.then(function() {
             loading.style.display = "none";
-            rendering = false;
+            canvas.style.opacity = "1";
+            renderTask = null;
+          }).catch(function(err) {
+            renderTask = null;
+            if (!err || err.name !== "RenderingCancelledException") {
+              loading.style.display = "none";
+              canvas.style.opacity = "1";
+            }
           });
+        }).catch(function() {
+          loading.style.display = "none";
+          canvas.style.opacity = "1";
         });
       }
 

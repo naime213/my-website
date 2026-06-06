@@ -238,3 +238,10 @@ body.lang-ar .book-bottom-bullets li { padding-right: 0; padding-left: 14px; }
 body.lang-ar .book-float-price { left: auto; right: 50%; transform: translateX(20px); }
 body.lang-ar .book-bottom-cta { flex-direction: row-reverse; }
 body.lang-ar .book-bottom-right { flex-direction: row-reverse; }
+
+/* ─── Hero RTL — mobile fixes ────────────────────────────────── */
+@media (max-width: 1024px) {
+  body.lang-ar #hero { direction: rtl; text-align: center; }
+  body.lang-ar .hero-cta { flex-direction: column; align-items: center; justify-content: center; }
+  body.lang-ar .hero-greeting { flex-direction: row-reverse; justify-content: center; }
+}
