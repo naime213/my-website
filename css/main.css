@@ -3080,22 +3080,30 @@ body.lang-ar .form-label { left: auto; right: 0; }
   }
 
   .hero-content {
-    padding: 0 32px;
+    padding: 0 24px;
     width: 100%;
     box-sizing: border-box;
-    order: 1;
+    order: 2;
   }
   .hero-visual {
     padding: 0;
     width: 100%;
     box-sizing: border-box;
-    order: -1;
-    margin-bottom: 36px;
+    order: 1;
+    margin-bottom: 28px;
+    display: flex;
+    justify-content: center;
   }
-  .hero-photo-wrap { width: 260px; height: 320px; margin: 0 auto; }
+  .hero-photo-wrap { width: 220px; height: 270px; margin: 0 auto; }
   .hero-greeting { justify-content: center; }
-  .hero-name { font-size: clamp(2rem, 7vw, 3rem); }
-  .hero-tagline { margin: 0 auto 36px; max-width: 320px; }
+  .hero-name {
+    font-size: clamp(2.2rem, 8vw, 3rem);
+    text-align: center;
+    line-height: 1.2;
+  }
+  .hero-title { text-align: center; font-size: clamp(1rem, 4vw, 1.3rem); }
+  .hero-subtitle { text-align: center; font-size: 0.9rem; }
+  .hero-tagline { margin: 0 auto 32px; max-width: 300px; text-align: center; font-size: 0.95rem; line-height: 1.7; }
 
   /* CTA buttons — stacked vertically */
   .hero-cta {
@@ -3103,19 +3111,20 @@ body.lang-ar .form-label { left: auto; right: 0; }
     align-items: center;
     gap: 12px;
   }
-  .hero-cta .magnetic-wrap { width: 100%; max-width: 280px; }
+  .hero-cta .magnetic-wrap { width: 100%; max-width: 260px; }
   .hero-cta .magnetic-wrap .btn { width: 100%; justify-content: center; }
   .hero-cta .btn-cv {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 8px;
-    padding: 12px 0;
+    padding: 14px 0;
     width: 100%;
-    max-width: 280px;
+    max-width: 260px;
     border-bottom: none;
     border: 1px solid rgba(201,168,76,0.25);
     border-radius: var(--radius-sm);
+    margin: 0 auto;
   }
 
   .about-stats { grid-template-columns: repeat(2, 1fr); }
@@ -3149,8 +3158,12 @@ body.lang-ar .form-label { left: auto; right: 0; }
   .section-header { margin-bottom: 48px; }
 
   /* Hero */
-  .hero-photo-wrap { width: 200px; height: 250px; }
+  .hero-photo-wrap { width: 180px; height: 220px; }
   #hero { padding-top: 80px; }
+  .hero-name { font-size: clamp(2rem, 9vw, 2.5rem); }
+  .hero-tagline { font-size: 0.9rem; max-width: 260px; }
+  .hero-cta .magnetic-wrap { max-width: 240px; }
+  .hero-cta .btn-cv { max-width: 240px; }
 
   /* Preloader — hide sidebars, shrink center on tiny phones */
   .pl-sidebar { display: none; }
