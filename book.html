@@ -227,26 +227,51 @@
       font-size: 0.78rem; color: rgba(245,245,240,0.5);
       letter-spacing: 0.04em;
     }
-
-    /* iframe viewer */
-    .bk-pdf-iframe-wrap { position: relative; }
-    .bk-pdf-iframe {
-      width: 100%; height: 700px;
-      border: none; display: block;
-      background: #0D0D0D;
+    .bk-pdf-nav {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .bk-pdf-nav-btn {
+      background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold); width: 34px; height: 34px; border-radius: 50%;
+      cursor: pointer; font-size: 1rem; display: flex; align-items: center;
+      justify-content: center; transition: background 0.2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .bk-pdf-nav-btn:hover { background: rgba(201,168,76,0.22); }
+    .bk-pdf-nav-btn:disabled { opacity: 0.3; cursor: default; }
+    .bk-pdf-page-info {
+      font-size: 0.78rem; color: rgba(245,245,240,0.55);
+      min-width: 48px; text-align: center; font-family: var(--font-en);
     }
 
-    /* Fallback when iframe can't load */
-    .bk-pdf-fallback {
-      display: none;
-      padding: 60px 24px;
-      text-align: center;
-      background: #0D0D0D;
+    /* Canvas viewer */
+    .bk-pdf-canvas-wrap {
+      position: relative; background: #0D0D0D;
+      display: flex; align-items: center; justify-content: center;
+      min-height: 420px; touch-action: pan-y;
+      overflow: hidden;
     }
-    .bk-pdf-fallback p {
+    #bk-pdf-canvas {
+      display: block; max-width: 100%; height: auto;
+    }
+    .bk-pdf-loading {
+      position: absolute; inset: 0; display: flex;
+      align-items: center; justify-content: center;
       color: rgba(245,245,240,0.3); font-size: 0.85rem;
-      line-height: 1.8;
+      gap: 10px;
     }
+    .bk-pdf-spinner {
+      width: 20px; height: 20px; border: 2px solid rgba(201,168,76,0.2);
+      border-top-color: var(--gold); border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .bk-pdf-no-file {
+      padding: 60px 24px; text-align: center; background: #0D0D0D;
+      color: rgba(245,245,240,0.3); font-size: 0.85rem; line-height: 1.8;
+      display: none;
+    }
+    .bk-pdf-no-file a { color: var(--gold); }
 
     /* Lock bar at bottom of preview */
     .bk-pdf-lock-bar {
@@ -454,24 +479,26 @@
       <div class="bk-pdf-wrap" id="bk-pdf-viewer">
         <!-- Toolbar -->
         <div class="bk-pdf-toolbar">
-          <span class="bk-pdf-title-bar"><span class="ar-only">صناعة الفيلم الوثائقي — معاينة مجانية (5 صفحات)</span><span class="en-only">The Art of Documentary Filmmaking — Free Preview (5 pages)</span></span>
+          <span class="bk-pdf-title-bar"><span class="ar-only">صناعة الفيلم الوثائقي — معاينة مجانية (5 صفحات)</span><span class="en-only">Documentary Filmmaking — Free Preview (5 pages)</span></span>
+          <div class="bk-pdf-nav">
+            <button class="bk-pdf-nav-btn" id="bk-pdf-prev" aria-label="Previous page">&#8592;</button>
+            <span class="bk-pdf-page-info" id="bk-pdf-info">1 / 5</span>
+            <button class="bk-pdf-nav-btn" id="bk-pdf-next" aria-label="Next page">&#8594;</button>
+          </div>
         </div>
 
-        <!-- iframe viewer -->
-        <div class="bk-pdf-iframe-wrap">
-          <iframe
-            src="assets/book/preview.pdf#toolbar=0&navpanes=0&view=FitH"
-            id="bk-pdf-iframe"
-            class="bk-pdf-iframe"
-            title="معاينة الكتاب"
-          ></iframe>
-
-          <!-- Fallback (shown if iframe fails) -->
-          <div class="bk-pdf-fallback" id="bk-fallback">
-            <div style="font-size:3rem; margin-bottom:16px; opacity:0.2;">📄</div>
+        <!-- Canvas viewer -->
+        <div class="bk-pdf-canvas-wrap" id="bk-pdf-canvas-wrap">
+          <div class="bk-pdf-loading" id="bk-pdf-loading">
+            <div class="bk-pdf-spinner"></div>
+            <span class="ar-only">جارٍ تحميل المعاينة…</span><span class="en-only">Loading preview…</span>
+          </div>
+          <canvas id="bk-pdf-canvas"></canvas>
+          <div class="bk-pdf-no-file" id="bk-pdf-no-file">
+            <div style="font-size:2.5rem;opacity:0.2;margin-bottom:12px;">📄</div>
             <p>
-              تعذّر تحميل المعاينة في المتصفح مباشرةً.<br/>
-              <a href="assets/book/preview.pdf" target="_blank" style="color:var(--gold);">افتح الملف في تبويب جديد</a>
+              <span class="ar-only">المعاينة غير متوفرة حالياً.<br/><a href="assets/book/preview.pdf" target="_blank">افتح الملف مباشرة</a></span>
+              <span class="en-only">Preview not available yet.<br/><a href="assets/book/preview.pdf" target="_blank">Open file directly</a></span>
             </p>
           </div>
         </div>
@@ -563,24 +590,83 @@
       });
     }
 
-    // ── PDF iframe fallback detection ──────────────────────────
-    // If browser blocks the iframe (e.g. file:// protocol), show fallback
-    const pdfIframe = document.getElementById("bk-pdf-iframe");
-    const pdfFallback = document.getElementById("bk-fallback");
-    if (pdfIframe) {
-      pdfIframe.addEventListener("error", () => {
-        pdfIframe.style.display = "none";
-        pdfFallback.style.display = "block";
-      });
-      // Detect file:// protocol — iframe won't load PDFs in that context
-      if (window.location.protocol === "file:") {
-        pdfIframe.style.display = "none";
-        pdfFallback.style.display = "block";
-        pdfFallback.querySelector("p").innerHTML =
-          "لعرض المعاينة، شغّل الموقع عبر خادم محلي (python3 -m http.server 8080) أو ارفعه على الإنترنت.<br/>" +
-          "<a href=\"assets/book/preview.pdf\" target=\"_blank\" style=\"color:var(--gold);\">افتح ملف PDF مباشرة</a>";
+    // ── PDF.js Viewer ──────────────────────────────────────────
+    (function() {
+      const PREVIEW_PAGES = 5;
+      const PDF_URL = "assets/book/preview.pdf";
+
+      const canvas    = document.getElementById("bk-pdf-canvas");
+      const loading   = document.getElementById("bk-pdf-loading");
+      const noFile    = document.getElementById("bk-pdf-no-file");
+      const info      = document.getElementById("bk-pdf-info");
+      const prevBtn   = document.getElementById("bk-pdf-prev");
+      const nextBtn   = document.getElementById("bk-pdf-next");
+      const wrap      = document.getElementById("bk-pdf-canvas-wrap");
+
+      if (!canvas) return;
+
+      let pdfDoc = null, curPage = 1, rendering = false;
+
+      function updateNav() {
+        info.textContent = curPage + " / " + Math.min(pdfDoc ? pdfDoc.numPages : PREVIEW_PAGES, PREVIEW_PAGES);
+        prevBtn.disabled = curPage <= 1;
+        nextBtn.disabled = curPage >= PREVIEW_PAGES || (pdfDoc && curPage >= pdfDoc.numPages);
       }
-    }
+
+      function renderPage(num) {
+        if (rendering || !pdfDoc) return;
+        rendering = true;
+        loading.style.display = "flex";
+        pdfDoc.getPage(num).then(function(page) {
+          const wrapW = wrap.clientWidth || 700;
+          const vp0   = page.getViewport({ scale: 1 });
+          const scale = wrapW / vp0.width;
+          const vp    = page.getViewport({ scale });
+          canvas.width  = vp.width;
+          canvas.height = vp.height;
+          page.render({ canvasContext: canvas.getContext("2d"), viewport: vp }).promise.then(function() {
+            loading.style.display = "none";
+            rendering = false;
+          });
+        });
+      }
+
+      function goTo(n) {
+        if (!pdfDoc) return;
+        const max = Math.min(pdfDoc.numPages, PREVIEW_PAGES);
+        curPage = Math.max(1, Math.min(n, max));
+        updateNav();
+        renderPage(curPage);
+      }
+
+      prevBtn.addEventListener("click", function() { goTo(curPage - 1); });
+      nextBtn.addEventListener("click", function() { goTo(curPage + 1); });
+
+      // Touch swipe between pages
+      let touchX0 = 0;
+      wrap.addEventListener("touchstart", function(e) { touchX0 = e.touches[0].clientX; }, { passive: true });
+      wrap.addEventListener("touchend", function(e) {
+        const dx = e.changedTouches[0].clientX - touchX0;
+        if (Math.abs(dx) > 40) { goTo(dx < 0 ? curPage + 1 : curPage - 1); }
+      }, { passive: true });
+
+      // Load PDF.js then the PDF
+      const script = document.createElement("script");
+      script.src = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js";
+      script.onload = function() {
+        window.pdfjsLib.GlobalWorkerOptions.workerSrc =
+          "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+        window.pdfjsLib.getDocument(PDF_URL).promise.then(function(pdf) {
+          pdfDoc = pdf;
+          updateNav();
+          renderPage(1);
+        }).catch(function() {
+          loading.style.display = "none";
+          noFile.style.display  = "block";
+        });
+      };
+      document.head.appendChild(script);
+    })();
 
     // ── Language toggle ────────────────────────────────────────
     (function() {

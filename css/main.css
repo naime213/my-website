@@ -944,6 +944,8 @@ body.lang-ar .nav-logo {
 .hero-content {
   position: relative;
   z-index: 2;
+  padding: 0 60px;
+  min-width: 0;
 }
 
 .hero-greeting {
@@ -1056,6 +1058,8 @@ body.lang-ar .hero-name {
   align-items: center;
   justify-content: center;
   z-index: 2;
+  padding: 0 60px;
+  min-width: 0;
 }
 
 .hero-photo-wrap {
@@ -1741,6 +1745,7 @@ body.lang-ar .en-only { display: none !important; }
   -ms-overflow-style: none;
   padding: 10px 2px 22px;
   -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
   cursor: grab;
 }
 .works-row::-webkit-scrollbar { display: none; }
@@ -3073,6 +3078,8 @@ body.lang-ar .form-label { left: auto; right: 0; }
     text-align: center;
   }
 
+  .hero-content,
+  .hero-visual { padding: 0 40px; width: 100%; box-sizing: border-box; }
   .hero-visual { order: -1; }
   .hero-photo-wrap { width: 280px; height: 340px; margin: 0 auto; }
   .hero-greeting { justify-content: center; }
@@ -3099,6 +3106,7 @@ body.lang-ar .form-label { left: auto; right: 0; }
   .form-row { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; text-align: center; }
   .hero-photo-wrap { width: 220px; height: 270px; }
+  .hero-content, .hero-visual { padding: 0 24px; }
   .book-3d-scene { height: 280px; }
   .pl-center { width: 200px; height: 200px; }
   .pl-num { font-size: 5rem; }

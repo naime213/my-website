@@ -240,6 +240,7 @@
     document.querySelectorAll(".works-row").forEach(row => {
       row._wasDragged = false;
 
+      // Mouse drag (desktop)
       row.addEventListener("mousedown", e => {
         if (e.button !== 0) return;
         const startX     = e.pageX;
@@ -264,6 +265,28 @@
         document.addEventListener("mousemove", onMove);
         document.addEventListener("mouseup",   onUp);
         e.preventDefault();
+      });
+
+      // Touch swipe (mobile)
+      let touchStartX = 0;
+      let touchScrollLeft = 0;
+
+      row.addEventListener("touchstart", e => {
+        touchStartX    = e.touches[0].pageX;
+        touchScrollLeft = row.scrollLeft;
+        row._wasDragged = false;
+      }, { passive: true });
+
+      row.addEventListener("touchmove", e => {
+        const dx = e.touches[0].pageX - touchStartX;
+        if (Math.abs(dx) > 5) {
+          row._wasDragged = true;
+          row.scrollLeft  = touchScrollLeft - dx;
+        }
+      }, { passive: true });
+
+      row.addEventListener("touchend", () => {
+        setTimeout(() => { row._wasDragged = false; }, 100);
       });
     });
   }
