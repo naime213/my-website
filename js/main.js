@@ -734,3 +734,17 @@
   }
 
 })();
+
+// Book Preview Slider
+let bookCurrentSlide = 0;
+function bookGoTo(n) {
+  const slides = document.querySelectorAll('.book-preview-slide');
+  const dots = document.querySelectorAll('.book-dot');
+  if (!slides.length) return;
+  slides[bookCurrentSlide].classList.remove('active');
+  dots[bookCurrentSlide].classList.remove('active');
+  bookCurrentSlide = (n + slides.length) % slides.length;
+  slides[bookCurrentSlide].classList.add('active');
+  dots[bookCurrentSlide].classList.add('active');
+}
+function bookSlide(dir) { bookGoTo(bookCurrentSlide + dir); }

@@ -1062,13 +1062,26 @@ c140 131 244 356 282 612 19 124 19 346 0 476 -20 131 -73 324 -120 436 -36
         <button class="book-preview-close" id="bookPreviewClose" aria-label="إغلاق">✕</button>
       </div>
       <div class="book-preview-body">
-        <iframe
-          src=""
-          id="bookPreviewIframe"
-          class="book-preview-iframe"
-          title="معاينة الكتاب"
-          allowfullscreen
-        ></iframe>
+        <div class="book-preview-slider">
+          <div class="book-preview-slides">
+            <div class="book-preview-slide active">
+              <img src="assets/book/page-1.jpg" alt="صفحة 1" />
+            </div>
+            <div class="book-preview-slide">
+              <img src="assets/book/page-2.jpg" alt="صفحة 2" />
+            </div>
+            <div class="book-preview-slide">
+              <img src="assets/book/page-3.jpg" alt="صفحة 3" />
+            </div>
+          </div>
+          <button class="book-slide-prev" onclick="bookSlide(-1)">&#8249;</button>
+          <button class="book-slide-next" onclick="bookSlide(1)">&#8250;</button>
+          <div class="book-slide-dots">
+            <span class="book-dot active" onclick="bookGoTo(0)"></span>
+            <span class="book-dot" onclick="bookGoTo(1)"></span>
+            <span class="book-dot" onclick="bookGoTo(2)"></span>
+          </div>
+        </div>
       </div>
       <div class="book-preview-lock">
         <span>🔒</span>
