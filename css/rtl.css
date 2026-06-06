@@ -48,6 +48,10 @@ body.lang-ar #hero {
   direction: rtl;
 }
 
+body.lang-ar .hero-inner {
+  direction: rtl;
+}
+
 body.lang-ar .hero-cta {
   flex-direction: row-reverse;
   justify-content: flex-end;

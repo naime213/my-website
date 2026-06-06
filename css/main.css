@@ -912,6 +912,19 @@ body.lang-ar .nav-logo {
   overflow: hidden;
 }
 
+.hero-inner {
+  display: contents;
+}
+
+@media (max-width: 1024px) {
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+}
+
 .hero-bg {
   position: absolute;
   inset: 0;
@@ -3073,26 +3086,24 @@ body.lang-ar .form-label { left: auto; right: 0; }
 
 /* ─── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 1024px) {
-  #hero {
-    grid-template-columns: 1fr;
+  #hero { padding: 100px 0 60px; }
+
+  .hero-inner {
     text-align: center;
-    padding: 100px 0 60px;
+    padding: 0 28px;
+    gap: 0;
   }
 
   .hero-content {
-    padding: 0 24px;
-    width: 100%;
-    box-sizing: border-box;
+    padding: 0;
     order: 2;
+    width: 100%;
   }
   .hero-visual {
-    padding: 0;
-    width: 100%;
-    box-sizing: border-box;
     order: 1;
     margin-bottom: 28px;
-    display: flex;
     justify-content: center;
+    width: 100%;
   }
   .hero-photo-wrap { width: 220px; height: 270px; margin: 0 auto; }
   .hero-greeting { justify-content: center; }
