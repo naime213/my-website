@@ -182,6 +182,9 @@ body.lang-ar .post-back-link svg {
 
 /* ─── Hero scroll ────────────────────────────────────────────── */
 body.lang-ar .hero-content { text-align: right; }
+@media (max-width: 1024px) {
+  body.lang-ar .hero-content { text-align: center; }
+}
 
 /* ─── About skills ───────────────────────────────────────────── */
 body.lang-ar .skills-strip { direction: rtl; }
@@ -241,7 +244,39 @@ body.lang-ar .book-bottom-right { flex-direction: row-reverse; }
 
 /* ─── Hero RTL — mobile fixes ────────────────────────────────── */
 @media (max-width: 1024px) {
-  body.lang-ar #hero { direction: rtl; text-align: center; }
-  body.lang-ar .hero-cta { flex-direction: column; align-items: center; justify-content: center; }
-  body.lang-ar .hero-greeting { flex-direction: row-reverse; justify-content: center; }
+  body.lang-ar #hero {
+    direction: rtl;
+    text-align: center;
+    grid-template-columns: 1fr;
+  }
+  body.lang-ar .hero-content {
+    text-align: center;
+    order: 2;
+    padding: 0 24px;
+    width: 100%;
+  }
+  body.lang-ar .hero-visual {
+    order: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 28px;
+  }
+  body.lang-ar .hero-cta {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  body.lang-ar .hero-greeting {
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
+  body.lang-ar .hero-name {
+    text-align: center;
+    font-size: clamp(2.2rem, 8vw, 3rem);
+  }
+  body.lang-ar .hero-tagline {
+    text-align: center;
+    margin: 0 auto 32px;
+  }
 }
