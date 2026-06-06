@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="الركب التواتي — قوافل الحج الصحراوية من واحات توات إلى الحجاز. رحلة إيمان وذاكرة جماعية عبر الصحراء الكبرى." />
+  <meta property="og:title" content="الركب التواتي: حجاج الصحراء | عبد المنعم بركاتي" />
+  <meta property="og:description" content="قوافل الحج الصحراوية من واحات توات إلى الحجاز — رحلة إيمان وذاكرة جماعية عبر الصحراء الكبرى." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://abdelmonaimbarkati.com/blog/post-1.html" />
+  <meta property="og:image" content="https://abdelmonaimbarkati.com/assets/posters/rakb-tawati.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://abdelmonaimbarkati.com/assets/posters/rakb-tawati.jpg" />
+  <title>الركب التواتي: حجاج الصحراء | مدونة عبد المنعم بركاتي</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="shortcut icon" href="../favicon.svg" />
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@400;700;900&family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/rtl.css" />
+  <style>
+    body { cursor: auto; }
+    #cursor-outer, #cursor-inner { display: none; }
+    body.lang-ar .post-body { font-family: var(--font-ar); }
+    body.lang-en .post-body { font-family: var(--font-en); line-height: 1.85; }
+    .post-img {
+      width: 100%;
+      border-radius: 8px;
+      margin: 36px 0 12px;
+      display: block;
+      object-fit: cover;
+      max-height: 520px;
+    }
+    .caption {
+      font-size: 0.82rem;
+      color: var(--gray-light);
+      text-align: center;
+      margin-bottom: 36px;
+      letter-spacing: 0.03em;
+    }
+  </style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0T9Q0EGF7C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-0T9Q0EGF7C");
+  </script>
+</head>
+<body class="lang-ar">
+
+  <div id="cursor-outer"></div>
+  <div id="cursor-inner"></div>
+  <div id="scroll-progress"></div>
+
+  <!-- Navbar -->
+  <nav id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="../index.html" class="nav-logo">عبد المنعم<span>.</span></a>
+        <ul class="nav-links">
+          <li><a href="../index.html" class="nav-link"><span class="ar-only">الرئيسية</span><span class="en-only">Home</span></a></li>
+          <li><a href="../index.html#works" class="nav-link"><span class="ar-only">أعمالي</span><span class="en-only">Works</span></a></li>
+          <li><a href="../book.html" class="nav-link"><span class="ar-only">الكتاب</span><span class="en-only">Book</span></a></li>
+          <li><a href="index.html" class="nav-link active"><span class="ar-only">المدونة</span><span class="en-only">Blog</span></a></li>
+          <li><a href="../index.html#contact" class="nav-link"><span class="ar-only">تواصل</span><span class="en-only">Contact</span></a></li>
+        </ul>
+        <div class="nav-right">
+          <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+            <span class="lang-option active" id="lang-ar-btn">AR</span>
+            <span class="lang-divider"></span>
+            <span class="lang-option" id="lang-en-btn">EN</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ POST HERO ════════════════════════════════════════════ -->
+  <div class="post-hero">
+    <img src="../assets/posters/rakb-tawati.webp" alt="فيلم الركب التواتي" class="post-hero-img" onerror="this.style.display='none'" />
+    <div class="post-hero-placeholder"></div>
+    <div class="post-hero-overlay"></div>
+    <div class="container post-hero-content">
+      <a href="../index.html#blog" class="post-back-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        <span class="ar-only">العودة للمدونة</span><span class="en-only">Back to Blog</span>
+      </a>
+      <h1 class="post-title" id="post-title">
+        <span class="ar-only">الركب التواتي… حجاج الصحراء</span>
+        <span class="en-only">The Touat Caravan… Pilgrims of the Desert</span>
+      </h1>
+      <div class="post-meta">
+        <div class="post-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span class="ar-only">أبريل 2025</span><span class="en-only">April 2025</span>
+        </div>
+        <div class="post-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span class="ar-only">9 دقائق قراءة</span><span class="en-only">9 min read</span>
+        </div>
+        <div class="post-meta-item">
+          <span class="tag tag-gold"><span class="ar-only">التراث الجزائري</span><span class="en-only">Algerian Heritage</span></span>
+        </div>
+        <div class="post-meta-item">
+          <span class="tag tag-gold"><span class="ar-only">وثائقي تاريخي</span><span class="en-only">Historical Documentary</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ POST BODY ════════════════════════════════════════════ -->
+  <article class="container">
+    <div class="post-body">
+
+      <!-- ─── Arabic body ─── -->
+      <div id="post-body-ar" class="ar-only">
+        <p>
+          في الجنوب الجزائري، حيث تبدو الصحراء بلا نهاية، لم تكن قوافل الحج مجرد رحلات نحو مكة، بل كانت عالماً كاملاً يتحرّك فوق الرمال.
+          وأثناء عملي على فيلم <em>"الركب التواتي… حجاج الصحراء"</em>، أدركت أنني لا أبحث فقط في تاريخ قافلة قديمة، بل في ذاكرة جماعية كاملة ما تزال حيّة داخل قصور توات ووجوه أهلها وحكاياتهم.
+        </p>
+
+        <h2>ركب يحمل ذاكرة القارة</h2>
+        <p>
+          كان الركب التواتي واحداً من أشهر أركاب الحج الصحراوية في تاريخ المغرب الإسلامي.
+          من هنا، من واحات توات، كانت القوافل تتجمّع قبل أن تنطلق في رحلة طويلة وشاقة نحو الحجاز، رحلة تستمر أشهراً، يقطع خلالها الحجاج آلاف الكيلومترات فوق ظهور الجمال، عابرين الصحراء الليبية ثم الأراضي المصرية وصولاً إلى موانئ العبور نحو مكة.
+        </p>
+
+        <img src="../assets/images/rokb-caravan.webp" alt="قافلة الركب التواتي عبر الصحراء" class="post-img" onerror="this.style.display='none'" />
+        <p class="caption">من أرشيف الفيلم — قوافل الحج تعبر الصحراء الكبرى</p>
+
+        <h2>أكثر من رحلة جغرافية</h2>
+        <p>
+          لكن ما شدّني خلال صناعة الفيلم، هو أن الركب لم يكن مجرد انتقال جغرافي من مكان إلى آخر.
+          كان تجربة روحية وإنسانية كاملة.
+        </p>
+        <p>
+          في تلك القوافل، كان الإيمان يسير جنباً إلى جنب مع الحياة اليومية.
+          حلقات ذكر تُقام ليلاً وسط الصحراء، مدائح نبوية تتردد بين الكثبان، علماء يتبادلون الكتب والإجازات، وأسواق صغيرة ترافق الركب لتبادل السلع القادمة من إفريقيا وبلاد المغرب.
+        </p>
+
+        <h2>الصحراء تحفظ الآثار</h2>
+        <p>
+          كلما تعمّقت في البحث، شعرت أن الصحراء نفسها كانت تحفظ آثار هؤلاء الحجاج.
+          القصور القديمة، الزوايا، الطرق المهجورة، وحتى الحكايات الشفوية التي ما يزال الناس يروونها إلى اليوم… كلها كانت تحمل شيئاً من روح ذلك الركب.
+        </p>
+
+        <blockquote>
+          "الصحراء لا تنسى. كل حجر فيها شاهد على من مرّ من هنا."
+          <br/>— من شهادات أهل توات
+        </blockquote>
+
+        <img src="../assets/images/rokb-ksour.webp" alt="قصور توات — شواهد على طريق الحج" class="post-img" onerror="this.style.display='none'" />
+        <p class="caption">قصور توات — حاضنة الذاكرة وملتقى القوافل</p>
+
+        <h2>ما وراء الكاميرا</h2>
+        <p>
+          أثناء التصوير، كنت مهتماً بالتفاصيل الصغيرة أكثر من الصور الكبرى.
+          كيف كان الحاج يودّع أهله؟
+          كيف كانت الليالي الطويلة في الصحراء؟
+          كيف كان الخوف، والتعب، واليقين، يعيشون معاً داخل الرحلة نفسها؟
+        </p>
+        <p>
+          هذه الأسئلة هي التي قادت الفيلم بصرياً وإنسانياً.
+        </p>
+
+        <h2>ملتقى القوافل والشعوب</h2>
+        <p>
+          ومن أكثر الأمور التي أثّرت فيّ، فكرة أن الصحراء الجزائرية كانت يوماً ملتقى لقوافل وشعوب متعددة.
+          فالركب التواتي كان يلتقي أحياناً بقوافل إفريقية أخرى، مثل الركب التكروري القادم من مناطق غرب إفريقيا، لتتحول الصحراء إلى مساحة عبور إنساني وثقافي وروحي هائلة.
+        </p>
+
+        <img src="../assets/images/rokb-routes.webp" alt="خرائط طرق الركب التواتي عبر الصحراء" class="post-img" onerror="this.style.display='none'" />
+        <p class="caption">طرق الركب القديمة — عبور القارة نحو الحجاز</p>
+
+        <h2>الذاكرة لم تختفِ</h2>
+        <p>
+          اليوم، اختفت تلك القوافل مع وسائل النقل الحديثة، لكن أثرها لم يختفِ تماماً.
+          ما تزال الذاكرة موجودة في توات، في القصص، وفي الطقوس، وفي ذلك الشعور العميق بأن الحج لم يكن مجرد وصول إلى مكة، بل رحلة تغيّر الإنسان من الداخل.
+        </p>
+        <p>
+          هذا الفيلم كان بالنسبة لي محاولة للإنصات إلى تلك الذاكرة…
+          وإعادة السفر، ولو بصرياً، مع رجال حملوا معهم الإيمان والحكايات وروح الصحراء في طريقهم الطويل نحو الحجاز.
+        </p>
+      </div>
+
+      <!-- ─── English body ─── -->
+      <div id="post-body-en" class="en-only">
+        <p>
+          In the Algerian south, where the desert seems to stretch without end, the Hajj caravans were never merely journeys toward Mecca — they were entire worlds moving across the sands.
+          While working on the film <em>"The Touat Caravan… Pilgrims of the Desert,"</em> I realized I was not simply researching the history of an ancient caravan, but excavating a collective memory still alive within the ksour of Touat, in the faces of its people and their stories.
+        </p>
+
+        <h2>A Caravan That Carried a Continent's Memory</h2>
+        <p>
+          The Touat Caravan was one of the most renowned Hajj caravans in the history of the Islamic Maghreb.
+          From here, from the oases of Touat, the caravans would gather before setting out on a long and arduous journey toward the Hijaz — a journey lasting months, during which the pilgrims covered thousands of kilometres on camelback, crossing the Libyan desert, then Egyptian lands, to reach the transit ports toward Mecca.
+        </p>
+
+        <img src="../assets/images/rokb-caravan.webp" alt="The Touat Caravan crossing the desert" class="post-img" onerror="this.style.display='none'" />
+        <p class="caption">From the film archive — Hajj caravans crossing the Sahara</p>
+
+        <h2>More Than a Geographical Journey</h2>
+        <p>
+          But what captivated me during the making of this film was the realization that the caravan was not merely a geographical transition from one place to another. It was a complete spiritual and human experience.
+        </p>
+        <p>
+          Within those caravans, faith walked side by side with daily life. Circles of dhikr performed at night in the heart of the desert, prophetic praises echoing between the dunes, scholars exchanging books and scholarly licenses, small markets accompanying the caravan to trade goods arriving from Africa and the Maghreb.
+        </p>
+
+        <h2>The Desert Preserves Its Traces</h2>
+        <p>
+          The deeper I went into research, the more I felt that the desert itself had preserved the traces of those pilgrims. The ancient ksour, the zawiyas, the abandoned roads, and even the oral stories that people still recount to this day — all carried something of the spirit of that caravan.
+        </p>
+
+        <blockquote>
+          "The desert does not forget. Every stone in it bears witness to those who passed this way."
+          <br/>— From the testimonies of Touat's people
+        </blockquote>
+
+        <img src="../assets/images/rokb-ksour.webp" alt="The ksour of Touat — witnesses to the Hajj route" class="post-img" onerror="this.style.display='none'" />
+        <p class="caption">The ksour of Touat — cradle of memory and meeting point of caravans</p>
+
+        <h2>Behind the Camera</h2>
+        <p>
+          During filming, I was drawn to small details more than grand images. How did a pilgrim bid farewell to his family? What were the long desert nights like? How did fear, exhaustion, and certainty coexist within the same journey?
+        </p>
+        <p>
+          These questions guided the film, both visually and humanly.
+        </p>
+
+        <h2>A Meeting Point of Caravans and Peoples</h2>
+        <p>
+          Among the things that moved me most was the idea that the Algerian desert was once a meeting point for multiple caravans and peoples.
+          The Touat Caravan would sometimes encounter other African caravans, such as the Takruri caravan coming from West Africa, transforming the desert into a vast space of human, cultural, and spiritual passage.
+        </p>
+
+        <img src="../assets/images/rokb-routes.webp" alt="Maps of the Touat Caravan routes across the Sahara" class="post-img" onerror="this.style.display='none'" />
+        <p class="caption">Ancient caravan routes — crossing the continent toward the Hijaz</p>
+
+        <h2>The Memory Did Not Disappear</h2>
+        <p>
+          Today, those caravans have vanished with modern means of transport, but their traces have not disappeared entirely.
+          The memory still lives in Touat — in the stories, in the rituals, and in that deep feeling that the Hajj was not merely an arrival in Mecca, but a journey that transforms a person from within.
+        </p>
+        <p>
+          This film was, for me, an attempt to listen to that memory… and to travel once more, if only visually, with men who carried with them faith, stories, and the spirit of the desert on their long road toward the Hijaz.
+        </p>
+      </div>
+
+      <a href="https://www.aljazeera360.com/video/947268" target="_blank" rel="noopener noreferrer" class="post-youtube-cta">
+        <div class="post-youtube-cta-icon">
+          <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+        <div class="post-youtube-cta-text">
+          <strong><span class="ar-only">شاهد فيلم "الركب التواتي" كاملاً</span><span class="en-only">Watch "The Touat Caravan" Full Film</span></strong>
+          <span><span class="ar-only">الجزيرة 360 — 2026</span><span class="en-only">Al Jazeera 360 — 2026</span></span>
+        </div>
+      </a>
+
+    </div><!-- /post-body -->
+
+    <!-- Related Posts -->
+    <div class="related-posts">
+      <h3 class="related-title"><span class="ar-only">مقالات مشابهة</span><span class="en-only">Related Posts</span></h3>
+      <div class="related-grid">
+        <a href="post-2.html" class="blog-card">
+          <div class="blog-card-img-wrap" style="height:140px">
+            <img src="../assets/posters/sebiba.webp" alt="السبيبة" class="blog-card-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div class="blog-card-img-placeholder" style="display:none">السبيبة</div>
+            <div class="blog-card-img-overlay"></div>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-meta"><span class="blog-date"><span class="ar-only">يناير 2024</span><span class="en-only">January 2024</span></span></div>
+            <h3 class="blog-card-title">
+              <span class="ar-only">السبيبة: تحدي تصوير تقليد عمره ألف وخمسمئة عام</span>
+              <span class="en-only">Sebiba: The Challenge of Filming a 1,500-Year-Old Tradition</span>
+            </h3>
+          </div>
+        </a>
+        <a href="post-3.html" class="blog-card">
+          <div class="blog-card-img-wrap" style="height:140px">
+            <img src="../assets/posters/chaoui.webp" alt="العرس الشاوي" class="blog-card-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <div class="blog-card-img-placeholder" style="display:none">العرس الشاوي</div>
+            <div class="blog-card-img-overlay"></div>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-meta"><span class="blog-date"><span class="ar-only">سبتمبر 2023</span><span class="en-only">September 2023</span></span></div>
+            <h3 class="blog-card-title">
+              <span class="ar-only">العرس الشاوي: الطريق من الفكرة إلى 2.5 مليون مشاهدة</span>
+              <span class="en-only">The Chaoui Wedding: From Concept to 2.5 Million Views</span>
+            </h3>
+          </div>
+        </a>
+      </div>
+    </div>
+
+  </article>
+
+  <!-- Footer -->
+  <footer id="footer" style="margin-top: 80px;">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="../index.html" class="footer-logo">عبد المنعم<span>.</span></a>
+        <p class="footer-rights">© 2026 <span class="ar-only">عبد المنعم بركاتي</span><span class="en-only">Abdelmonaim Barkati</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script>
+  <script src="../js/content.js"></script>
+  <script>
+    window.addEventListener("scroll", () => {
+      document.getElementById("navbar").classList.toggle("scrolled", window.scrollY > 60);
+      const bar = document.getElementById("scroll-progress");
+      if (bar) {
+        const total = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = (total > 0 ? window.scrollY / total * 100 : 0) + "%";
+      }
+    });
+
+    (function() {
+      const saved = localStorage.getItem("ab-lang") || "ar";
+      if (saved === "en") {
+        document.body.classList.remove("lang-ar");
+        document.body.classList.add("lang-en");
+        document.documentElement.setAttribute("lang", "en");
+        document.documentElement.setAttribute("dir", "ltr");
+        const arBtn = document.getElementById("lang-ar-btn");
+        const enBtn = document.getElementById("lang-en-btn");
+        if (arBtn) arBtn.classList.remove("active");
+        if (enBtn) enBtn.classList.add("active");
+      }
+    })();
+
+    const toggle = document.getElementById("lang-toggle");
+    if (toggle) {
+      toggle.addEventListener("click", () => {
+        const isAr = document.body.classList.contains("lang-ar");
+        const next = isAr ? "en" : "ar";
+        document.body.classList.toggle("lang-ar", !isAr);
+        document.body.classList.toggle("lang-en", isAr);
+        document.documentElement.setAttribute("lang", next);
+        document.documentElement.setAttribute("dir", isAr ? "ltr" : "rtl");
+        document.getElementById("lang-ar-btn").classList.toggle("active", !isAr);
+        document.getElementById("lang-en-btn").classList.toggle("active", isAr);
+        localStorage.setItem("ab-lang", next);
+      });
+    }
+  </script>
+</body>
+</html>

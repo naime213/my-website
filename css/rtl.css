@@ -1,0 +1,240 @@
+/* ============================================================
+   rtl.css — Arabic RTL overrides
+   RTL rules applied when body has class "lang-ar"
+   ============================================================ */
+
+body.lang-ar {
+  direction: rtl;
+  text-align: right;
+}
+
+/* ─── Typography ─────────────────────────────────────────────── */
+body.lang-ar .hero-name {
+  font-family: var(--font-ar);
+}
+
+body.lang-ar .section-title,
+body.lang-ar .contact-title,
+body.lang-ar .book-title,
+body.lang-ar .post-title,
+body.lang-ar .footer-logo {
+  font-family: var(--font-ar);
+  letter-spacing: 0;
+}
+
+body.lang-ar .stat-number,
+body.lang-ar .preloader-counter {
+  font-family: var(--font-en); /* keep latin numerals */
+}
+
+/* ─── Navigation ─────────────────────────────────────────────── */
+body.lang-ar .nav-link::after {
+  left: auto;
+  right: 0;
+}
+
+body.lang-ar .nav-link:hover::after,
+body.lang-ar .nav-link.active::after {
+  width: 100%;
+}
+
+/* ─── Hero ───────────────────────────────────────────────────── */
+body.lang-ar .hero-greeting::before {
+  /* flip the decorative line */
+  order: 1;
+}
+
+body.lang-ar #hero {
+  direction: rtl;
+}
+
+body.lang-ar .hero-cta {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+/* ─── Buttons ────────────────────────────────────────────────── */
+body.lang-ar .btn::before {
+  transform: translateX(101%);
+}
+
+body.lang-ar .btn:hover::before {
+  transform: translateX(0);
+}
+
+/* ─── Section divider ────────────────────────────────────────── */
+body.lang-ar .section-divider {
+  background: linear-gradient(270deg, var(--gold), transparent);
+  margin-right: auto;
+  margin-left: 0;
+}
+
+body.lang-ar .section-header.text-left,
+body.lang-ar .book-content .section-header {
+  text-align: right;
+}
+
+body.lang-ar .section-header .section-divider {
+  margin-right: auto;
+  margin-left: unset;
+}
+
+/* ─── About ──────────────────────────────────────────────────── */
+body.lang-ar .about-experience-badge {
+  right: auto;
+  left: -20px;
+}
+
+/* ─── Form ───────────────────────────────────────────────────── */
+body.lang-ar .form-label {
+  left: auto;
+  right: 0;
+}
+
+body.lang-ar .form-input,
+body.lang-ar .form-textarea {
+  text-align: right;
+}
+
+/* ─── Marquee ────────────────────────────────────────────────── */
+body.lang-ar .marquee-text,
+body.lang-ar .partners-track,
+body.lang-ar .film-track {
+  animation-direction: reverse;
+  animation-delay: -10s;
+}
+
+/* ─── Blog post blockquote ───────────────────────────────────── */
+body.lang-ar .post-body blockquote {
+  border-left: none;
+  border-right: 3px solid var(--gold);
+}
+
+/* ─── Partners track ─────────────────────────────────────────── */
+body.lang-ar .partners-track {
+  animation: trackScrollRTL 20s linear infinite;
+}
+
+@keyframes trackScrollRTL {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(50%); }
+}
+
+/* ─── Film card year badge ───────────────────────────────────── */
+body.lang-ar .film-year {
+  right: auto;
+  left: 12px;
+}
+
+body.lang-ar .film-impact-badge {
+  left: auto;
+  right: 12px;
+}
+
+/* ─── Back to top ────────────────────────────────────────────── */
+body.lang-ar #back-to-top {
+  right: 32px;
+  left: auto;
+}
+
+/* ─── Toast ──────────────────────────────────────────────────── */
+body.lang-ar #toast {
+  right: auto;
+  left: 32px;
+  border-left: 1px solid var(--border-glass);
+  border-right: 3px solid var(--gold);
+}
+
+/* ─── Nav link hover direction ───────────────────────────────── */
+body.lang-ar .btn:hover .btn-icon {
+  transform: translateX(-4px);
+}
+
+/* ─── Contact grid — in RTL: info on right (start), form on left (end) ── */
+body.lang-ar .contact-grid {
+  grid-template-columns: 1fr 1.5fr;
+}
+
+/* ─── Contact item ───────────────────────────────────────────── */
+body.lang-ar .contact-item {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+/* ─── Footer ─────────────────────────────────────────────────── */
+body.lang-ar .footer-bottom {
+  flex-direction: row-reverse;
+}
+
+/* ─── Blog arrow ─────────────────────────────────────────────── */
+body.lang-ar .blog-read-more-arrow {
+  transform: rotate(180deg);
+}
+
+body.lang-ar .blog-card:hover .blog-read-more-arrow {
+  transform: rotate(180deg) translateX(4px);
+}
+
+/* ─── Post back link ─────────────────────────────────────────── */
+body.lang-ar .post-back-link svg {
+  transform: rotate(180deg);
+}
+
+/* ─── Hero scroll ────────────────────────────────────────────── */
+body.lang-ar .hero-content { text-align: right; }
+
+/* ─── About skills ───────────────────────────────────────────── */
+body.lang-ar .skills-strip { direction: rtl; }
+
+/* ─── Paragraph spacing in post ─────────────────────────────── */
+body.lang-ar .post-body {
+  font-family: var(--font-ar);
+  font-size: 1.05rem;
+  line-height: 2;
+}
+
+body.lang-ar .post-body h2,
+body.lang-ar .post-body h3 {
+  font-family: var(--font-ar);
+  letter-spacing: 0;
+}
+
+/* ─── Section number ─────────────────────────────────────────── */
+body.lang-ar .section-num {
+  left: auto;
+  right: 0;
+}
+
+/* ─── Works filter buttons row ───────────────────────────────── */
+body.lang-ar .works-filters { flex-direction: row-reverse; }
+
+/* ─── Book features list ─────────────────────────────────────── */
+body.lang-ar .book-feature {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+/* ─── Contact form submit ────────────────────────────────────── */
+body.lang-ar .form-submit { align-self: flex-end; }
+
+/* ─── Social links ───────────────────────────────────────────── */
+body.lang-ar .contact-social { flex-direction: row-reverse; }
+
+/* ─── Works group header RTL — right line fades right→transparent ── */
+body.lang-ar .works-group-line {
+  background: linear-gradient(270deg, rgba(201,168,76,0.35), transparent);
+}
+body.lang-ar .works-group-line--right {
+  background: linear-gradient(90deg, rgba(201,168,76,0.35), transparent);
+}
+
+/* ─── Awards RTL ─────────────────────────────────────────────── */
+/* Laurel badges are circular — no directional overrides needed */
+
+/* ─── Book section RTL ───────────────────────────────────────── */
+body.lang-ar .book-trust-row { flex-direction: row-reverse; }
+body.lang-ar .book-bottom-bullets li::before { right: auto; left: 0; }
+body.lang-ar .book-bottom-bullets li { padding-right: 0; padding-left: 14px; }
+body.lang-ar .book-float-price { left: auto; right: 50%; transform: translateX(20px); }
+body.lang-ar .book-bottom-cta { flex-direction: row-reverse; }
+body.lang-ar .book-bottom-right { flex-direction: row-reverse; }

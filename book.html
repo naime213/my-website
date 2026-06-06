@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="صناعة الفيلم الوثائقي من الفكرة إلى الشاشة — كتاب إلكتروني PDF بقلم عبد المنعم بركاتي. $18 فقط، تسليم فوري." />
+  <meta property="og:title" content="صناعة الفيلم الوثائقي | كتاب عبد المنعم بركاتي" />
+  <meta property="og:description" content="كتاب إلكتروني PDF — من الفكرة إلى الشاشة. تسليم فوري." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://abdelmonaimbarkati.com/book.html" />
+  <meta property="og:image" content="https://abdelmonaimbarkati.com/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://abdelmonaimbarkati.com/assets/og-image.jpg" />
+  <title>صناعة الفيلم الوثائقي | كتاب عبد المنعم بركاتي</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="shortcut icon" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@400;700;900&family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/rtl.css" />
+  <style>
+    /* ─── Book page overrides ───────────────────────── */
+    body { cursor: auto; background: var(--bg-dark); }
+    #cursor-outer, #cursor-inner { display: none; }
+    a, button, .btn, input, textarea, select { cursor: pointer; }
+
+    /* ─── Hero ──────────────────────────────────────── */
+    .bk-hero {
+      padding: 120px 0 70px;
+      position: relative;
+    }
+    .bk-hero-inner {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    /* Small 3D Book */
+    .bk-book-scene {
+      perspective: 800px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 280px;
+    }
+    .bk-book {
+      width: 160px;
+      height: 224px;
+      transform-style: preserve-3d;
+      transform: rotateY(-18deg) rotateX(4deg);
+      animation: bookFloat 6s ease-in-out infinite;
+      position: relative;
+    }
+    .bk-face { position: absolute; backface-visibility: hidden; }
+    .bk-front {
+      width: 160px; height: 224px;
+      transform: translateZ(14px);
+      border-radius: 0 3px 3px 0;
+      overflow: hidden;
+      box-shadow: 8px 8px 30px rgba(0,0,0,0.6), 0 0 20px rgba(201,168,76,0.1);
+    }
+    .bk-front img { width: 100%; height: 100%; object-fit: cover; }
+    .bk-front-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(150deg, #1A1408 0%, #2C2010 50%, #1A1408 100%);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 10px; padding: 20px; position: relative;
+    }
+    .bk-front-placeholder::before {
+      content: ''; position: absolute; inset: 6px;
+      border: 1px solid rgba(201,168,76,0.25);
+    }
+    .bk-cover-t1 {
+      font-family: var(--font-ar); font-size: 1rem; font-weight: 900;
+      color: var(--gold); text-align: center; line-height: 1.4; z-index:1;
+    }
+    .bk-cover-t2 {
+      font-family: var(--font-ar); font-size: 0.7rem;
+      color: rgba(201,168,76,0.6); text-align: center; z-index:1;
+    }
+    .bk-cover-line { width: 40px; height: 1px; background: var(--border-gold); z-index:1; }
+    .bk-cover-author { font-size: 0.55rem; letter-spacing: 0.15em; color: rgba(201,168,76,0.4); z-index:1; }
+    .bk-spine {
+      width: 28px; height: 224px;
+      transform: rotateY(-90deg) translateZ(14px);
+      background: linear-gradient(to right, #1A1408, #2C2010, #1A1408);
+      box-shadow: -4px 0 12px rgba(0,0,0,0.5);
+    }
+    .bk-back {
+      width: 160px; height: 224px;
+      transform: rotateY(180deg) translateZ(14px);
+      background: #1A1408; border-radius: 3px 0 0 3px;
+    }
+    .bk-shadow {
+      position: absolute; bottom: -16px; left: 50%;
+      transform: translateX(-50%);
+      width: 130px; height: 14px;
+      background: rgba(0,0,0,0.5); filter: blur(12px); border-radius: 50%;
+    }
+
+    /* ─── Content side ──────────────────────────────── */
+    .bk-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold); border: 1px solid rgba(201,168,76,0.3);
+      padding: 4px 14px; border-radius: 20px; margin-bottom: 20px;
+    }
+    .bk-tag svg { width: 12px; height: 12px; }
+
+    .bk-title {
+      font-family: var(--font-ar); font-weight: 900;
+      font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+      color: var(--white); line-height: 1.15; margin-bottom: 6px;
+    }
+    .bk-title span {
+      display: block; color: var(--gold);
+      font-size: clamp(1rem, 1.8vw, 1.4rem); font-weight: 600;
+    }
+    .bk-author {
+      font-size: 0.82rem; color: rgba(245,245,240,0.45);
+      margin-bottom: 28px; letter-spacing: 0.02em;
+    }
+
+    .bk-features {
+      list-style: none; display: grid;
+      grid-template-columns: 1fr 1fr; gap: 10px 24px; margin-bottom: 36px;
+    }
+    .bk-feature {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 0.85rem; color: rgba(245,245,240,0.75);
+    }
+    .bk-check {
+      width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0;
+      background: rgba(201,168,76,0.12); border: 1px solid var(--border-gold);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); font-size: 0.6rem; margin-top: 1px;
+    }
+
+    .bk-purchase {
+      display: flex; align-items: center; gap: 24px;
+      flex-wrap: wrap; margin-bottom: 16px;
+    }
+    .bk-price {
+      display: flex; align-items: flex-start; gap: 2px; line-height: 1;
+    }
+    .bk-price-cur {
+      font-family: var(--font-en); font-size: 1.3rem; font-weight: 700;
+      color: var(--gold); margin-top: 6px;
+    }
+    .bk-price-num {
+      font-family: var(--font-en); font-size: 3.6rem; font-weight: 900;
+      color: var(--gold); line-height: 1;
+    }
+    .bk-price-meta { display: flex; flex-direction: column; gap: 2px; padding-top: 8px; }
+    .bk-badge {
+      background: var(--gold); color: var(--black);
+      font-size: 0.58rem; font-weight: 700; padding: 2px 8px;
+      border-radius: 10px; letter-spacing: 0.1em; white-space: nowrap;
+    }
+    .bk-delivery {
+      font-size: 0.7rem; color: rgba(245,245,240,0.4); white-space: nowrap;
+    }
+
+    .bk-trust {
+      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+    }
+    .bk-trust-item {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 0.75rem; color: rgba(245,245,240,0.4);
+    }
+    .bk-trust-item svg { color: var(--gold); opacity: 0.7; flex-shrink: 0; }
+
+    /* ─── Section divider ───────────────────────────── */
+    .bk-divider {
+      border: none; border-top: 1px solid rgba(255,255,255,0.06);
+      margin: 0;
+    }
+
+    /* ─── PDF Preview ───────────────────────────────── */
+    .bk-preview {
+      padding: 70px 0;
+    }
+    .bk-preview-head {
+      text-align: center; margin-bottom: 40px;
+    }
+    .bk-preview-tag {
+      display: inline-block; font-size: 0.68rem;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold); border: 1px solid rgba(201,168,76,0.3);
+      padding: 4px 16px; border-radius: 20px; margin-bottom: 14px;
+    }
+    .bk-preview-title {
+      font-family: var(--font-ar); font-size: 1.6rem;
+      font-weight: 700; color: var(--white); margin-bottom: 8px;
+    }
+    .bk-preview-sub {
+      font-size: 0.82rem; color: rgba(245,245,240,0.4);
+    }
+
+    /* PDF Viewer Container */
+    .bk-pdf-wrap {
+      background: #111;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Top toolbar */
+    .bk-pdf-toolbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 24px;
+      background: rgba(255,255,255,0.03);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .bk-pdf-title-bar {
+      font-size: 0.78rem; color: rgba(245,245,240,0.5);
+      letter-spacing: 0.04em;
+    }
+
+    /* iframe viewer */
+    .bk-pdf-iframe-wrap { position: relative; }
+    .bk-pdf-iframe {
+      width: 100%; height: 700px;
+      border: none; display: block;
+      background: #0D0D0D;
+    }
+
+    /* Fallback when iframe can't load */
+    .bk-pdf-fallback {
+      display: none;
+      padding: 60px 24px;
+      text-align: center;
+      background: #0D0D0D;
+    }
+    .bk-pdf-fallback p {
+      color: rgba(245,245,240,0.3); font-size: 0.85rem;
+      line-height: 1.8;
+    }
+
+    /* Lock bar at bottom of preview */
+    .bk-pdf-lock-bar {
+      display: flex; align-items: center; justify-content: center;
+      gap: 24px; flex-wrap: wrap;
+      padding: 24px;
+      background: linear-gradient(to top, rgba(13,13,13,0.98) 0%, rgba(13,13,13,0.9) 100%);
+      border-top: 1px solid rgba(201,168,76,0.15);
+      text-align: center;
+    }
+    .bk-pdf-lock-bar span {
+      font-size: 0.88rem; color: rgba(245,245,240,0.55);
+    }
+
+    /* ─── Bottom CTA ────────────────────────────────── */
+    .bk-cta-bar {
+      background: linear-gradient(135deg, #0F0E0A 0%, #14110A 50%, #0F0E0A 100%);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: var(--radius-md);
+      padding: 44px 52px;
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 40px; flex-wrap: wrap;
+      margin-bottom: var(--section-pad);
+      position: relative; overflow: hidden;
+    }
+    .bk-cta-bar::before {
+      content: '';
+      position: absolute; top: -60px; right: -60px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(201,168,76,0.08), transparent 70%);
+      pointer-events: none;
+    }
+    .bk-cta-left { flex: 1; min-width: 200px; }
+    .bk-cta-title {
+      font-family: var(--font-ar); font-size: 1.6rem;
+      font-weight: 800; color: var(--white); margin-bottom: 8px;
+    }
+    .bk-cta-note { font-size: 0.82rem; color: rgba(245,245,240,0.4); line-height: 1.6; }
+    .bk-cta-right {
+      display: flex; align-items: center; gap: 28px;
+    }
+    .bk-cta-price {
+      font-family: var(--font-en); font-size: 3rem; font-weight: 900;
+      color: var(--gold); line-height: 1;
+    }
+
+    /* ─── Responsive ────────────────────────────────── */
+    @media (max-width: 900px) {
+      .bk-hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .bk-book-scene { height: 220px; }
+      .bk-features { grid-template-columns: 1fr; }
+      .bk-cta-bar { flex-direction: column; align-items: flex-start; padding: 32px 24px; }
+      .bk-cta-right { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 600px) {
+      .bk-hero { padding: 100px 0 50px; }
+      .bk-pdf-toolbar { flex-direction: column; gap: 10px; }
+    }
+  </style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0T9Q0EGF7C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-0T9Q0EGF7C");
+  </script>
+</head>
+<body class="lang-ar">
+
+  <div id="cursor-outer"></div>
+  <div id="cursor-inner"></div>
+  <div id="scroll-progress"></div>
+
+  <!-- ═══ NAVBAR ═══════════════════════════════════════════════ -->
+  <nav id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">عبد المنعم<span>.</span></a>
+        <ul class="nav-links">
+          <li><a href="index.html#hero"    class="nav-link"><span class="ar-only">الرئيسية</span><span class="en-only">Home</span></a></li>
+          <li><a href="index.html#about"   class="nav-link"><span class="ar-only">من أنا</span><span class="en-only">About</span></a></li>
+          <li><a href="index.html#works"   class="nav-link"><span class="ar-only">أعمالي</span><span class="en-only">Works</span></a></li>
+          <li><a href="book.html"          class="nav-link active"><span class="ar-only">الكتاب</span><span class="en-only">Book</span></a></li>
+          <li><a href="index.html#blog"    class="nav-link"><span class="ar-only">المدونة</span><span class="en-only">Blog</span></a></li>
+          <li><a href="index.html#contact" class="nav-link"><span class="ar-only">تواصل</span><span class="en-only">Contact</span></a></li>
+        </ul>
+        <div class="nav-right">
+          <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+            <span class="lang-option active" id="lang-ar-btn">AR</span>
+            <span class="lang-divider"></span>
+            <span class="lang-option" id="lang-en-btn">EN</span>
+          </button>
+          <button class="nav-menu-btn" id="nav-menu-btn" aria-label="القائمة" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile nav -->
+  <div id="nav-mobile" class="nav-mobile" aria-hidden="true">
+    <a href="index.html#hero"    class="nav-link"><span class="ar-only">الرئيسية</span><span class="en-only">Home</span></a>
+    <a href="index.html#about"   class="nav-link"><span class="ar-only">من أنا</span><span class="en-only">About</span></a>
+    <a href="index.html#works"   class="nav-link"><span class="ar-only">أعمالي</span><span class="en-only">Works</span></a>
+    <a href="book.html"          class="nav-link active"><span class="ar-only">الكتاب</span><span class="en-only">Book</span></a>
+    <a href="index.html#blog"    class="nav-link"><span class="ar-only">المدونة</span><span class="en-only">Blog</span></a>
+    <a href="index.html#contact" class="nav-link"><span class="ar-only">تواصل</span><span class="en-only">Contact</span></a>
+  </div>
+
+  <!-- ═══ BOOK HERO ══════════════════════════════════════════════ -->
+  <section class="bk-hero">
+    <div class="container">
+      <div class="bk-hero-inner">
+
+        <!-- Small 3D Book -->
+        <div class="bk-book-scene">
+          <div class="bk-book" id="bk-book">
+            <div class="bk-face bk-spine"></div>
+            <div class="bk-face bk-front">
+              <img
+                src="assets/book/cover.webp"
+                alt="غلاف الكتاب"
+                onerror="this.style.display='none'; document.getElementById('bk-placeholder').style.display='flex';"
+              />
+              <div class="bk-front-placeholder" id="bk-placeholder" style="display:none">
+                <div class="bk-cover-t1">صناعة الفيلم الوثائقي</div>
+                <div class="bk-cover-line"></div>
+                <div class="bk-cover-t2">من الفكرة إلى الشاشة</div>
+                <div class="bk-cover-author">عبد المنعم بركاتي</div>
+              </div>
+            </div>
+            <div class="bk-face bk-back"></div>
+          </div>
+          <div class="bk-shadow"></div>
+        </div>
+
+        <!-- Content -->
+        <div>
+          <div class="bk-tag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <span class="ar-only">كتاب إلكتروني — PDF</span><span class="en-only">E-Book — PDF</span>
+          </div>
+
+          <h1 class="bk-title">
+            <span class="ar-only">صناعة الفيلم الوثائقي</span><span class="en-only">The Art of Documentary Filmmaking</span>
+            <span><span class="ar-only">من الفكرة إلى الشاشة</span><span class="en-only">From Idea to Screen</span></span>
+          </h1>
+          <p class="bk-author"><span class="ar-only">بقلم عبد المنعم بركاتي — صانع أفلام وثائقي</span><span class="en-only">By Abdelmonaim Barkati — Documentary Filmmaker</span></p>
+
+          <ul class="bk-features">
+            <li class="bk-feature"><span class="bk-check">✓</span><span><span class="ar-only">أسرار التصوير الاحترافي للوثائقيات</span><span class="en-only">Professional cinematography secrets for documentaries</span></span></li>
+            <li class="bk-feature"><span class="bk-check">✓</span><span><span class="ar-only">بناء الحكاية من الصفر للمونتاج</span><span class="en-only">Building the story from scratch to final edit</span></span></li>
+            <li class="bk-feature"><span class="bk-check">✓</span><span><span class="ar-only">ما بعد الإنتاج للمبتدئين والمحترفين</span><span class="en-only">Post-production for beginners and professionals</span></span></li>
+            <li class="bk-feature"><span class="bk-check">✓</span><span><span class="ar-only">كيف تفوز بجوائز المهرجانات الدولية</span><span class="en-only">How to win international film festival awards</span></span></li>
+          </ul>
+
+          <div class="bk-purchase">
+            <div class="bk-price">
+              <span class="bk-price-cur">$</span>
+              <span class="bk-price-num">9.99</span>
+              <div class="bk-price-meta">
+                <span class="bk-badge"><span class="ar-only">إصدار جديد</span><span class="en-only">New Release</span></span>
+                <span class="bk-delivery"><span class="ar-only">تسليم فوري</span><span class="en-only">Instant Delivery</span></span>
+              </div>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:12px;">
+              <div class="magnetic-wrap">
+                <a id="bk-buy-btn" href="https://www.amazon.com/dp/B0H488DHPG" target="_blank" rel="noopener" class="btn btn-primary" style="padding:16px 40px; font-size:1rem;"><span class="ar-only">اقتن الكتاب الآن</span><span class="en-only">Get the Book Now</span></a>
+              </div>
+              <!-- استبدل XXXXXXXXXX برقم الواتساب مع رمز الدولة بدون + -->
+              <a href="https://wa.me/213555149616?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%82%D8%AA%D9%86%D8%A7%D8%A1%20%D9%83%D8%AA%D8%A7%D8%A8%20%D8%B5%D9%86%D8%A7%D8%B9%D8%A9%20%D8%A7%D9%84%D9%81%D9%8A%D9%84%D9%85%20%D8%A7%D9%84%D9%88%D8%AB%D8%A7%D8%A6%D9%82%D9%8A"
+                 target="_blank" rel="noopener"
+                 style="display:inline-flex; align-items:center; gap:10px; background:#25D366; color:#fff; font-family:var(--font-ar); font-size:0.9rem; font-weight:700; padding:13px 28px; border-radius:var(--radius-sm); text-decoration:none; transition:opacity 0.2s; white-space:nowrap;"
+                 onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.555 4.118 1.528 5.855L.057 23.215a.75.75 0 0 0 .93.894l5.498-1.443A11.942 11.942 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.698-.5-5.254-1.377l-.376-.213-3.904 1.024.994-3.79-.23-.37A9.944 9.944 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+                <span class="ar-only">تواصل مع المؤلف عبر واتساب</span><span class="en-only">Contact the Author on WhatsApp</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="bk-trust">
+            <span class="bk-trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="15" height="15"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span class="ar-only">تسليم فوري بعد الدفع</span><span class="en-only">Instant delivery after payment</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="bk-divider" />
+
+  <!-- ═══ PDF PREVIEW ══════════════════════════════════════════ -->
+  <section class="bk-preview">
+    <div class="container">
+      <div class="bk-preview-head">
+        <span class="bk-preview-tag"><span class="ar-only">معاينة مجانية</span><span class="en-only">Free Preview</span></span>
+        <h2 class="bk-preview-title"><span class="ar-only">اقرأ 5 صفحات قبل الشراء</span><span class="en-only">Read 5 Pages Before Buying</span></h2>
+        <p class="bk-preview-sub"><span class="ar-only">ضع ملف PDF في</span><span class="en-only">Place the PDF in</span> <code style="color:var(--gold);background:rgba(201,168,76,0.1);padding:2px 8px;border-radius:4px;">assets/book/preview.pdf</code> <span class="ar-only">ليظهر هنا</span><span class="en-only">for it to appear here</span></p>
+      </div>
+
+      <div class="bk-pdf-wrap" id="bk-pdf-viewer">
+        <!-- Toolbar -->
+        <div class="bk-pdf-toolbar">
+          <span class="bk-pdf-title-bar"><span class="ar-only">صناعة الفيلم الوثائقي — معاينة مجانية (5 صفحات)</span><span class="en-only">The Art of Documentary Filmmaking — Free Preview (5 pages)</span></span>
+        </div>
+
+        <!-- iframe viewer -->
+        <div class="bk-pdf-iframe-wrap">
+          <iframe
+            src="assets/book/preview.pdf#toolbar=0&navpanes=0&view=FitH"
+            id="bk-pdf-iframe"
+            class="bk-pdf-iframe"
+            title="معاينة الكتاب"
+          ></iframe>
+
+          <!-- Fallback (shown if iframe fails) -->
+          <div class="bk-pdf-fallback" id="bk-fallback">
+            <div style="font-size:3rem; margin-bottom:16px; opacity:0.2;">📄</div>
+            <p>
+              تعذّر تحميل المعاينة في المتصفح مباشرةً.<br/>
+              <a href="assets/book/preview.pdf" target="_blank" style="color:var(--gold);">افتح الملف في تبويب جديد</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Lock bar -->
+        <div class="bk-pdf-lock-bar">
+          <span><span class="ar-only">🔒 انتهت المعاينة المجانية — اقتن الكتاب للوصول الكامل</span><span class="en-only">🔒 Free preview ended — get the book for full access</span></span>
+          <a href="https://www.amazon.com/dp/B0H488DHPG" target="_blank" rel="noopener" class="btn btn-primary" style="padding:12px 32px;"><span class="ar-only">اقتن الكتاب — $9.99</span><span class="en-only">Get the Book — $9.99</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="bk-divider" />
+
+  <!-- ═══ BOTTOM CTA ════════════════════════════════════════════ -->
+  <section style="padding: 70px 0 0;">
+    <div class="container">
+      <div class="bk-cta-bar">
+        <div class="bk-cta-left">
+          <p class="bk-cta-title"><span class="ar-only">ابدأ رحلتك الآن</span><span class="en-only">Start Your Journey Now</span></p>
+          <p class="bk-cta-note">
+            <span class="ar-only">PDF عالي الجودة · تسليم فوري عبر البريد الإلكتروني</span>
+            <span class="en-only">High-quality PDF · Instant delivery by email</span>
+          </p>
+        </div>
+        <div class="bk-cta-right">
+          <span class="bk-cta-price">$9.99</span>
+          <div class="magnetic-wrap">
+            <a href="https://www.amazon.com/dp/B0H488DHPG" target="_blank" rel="noopener" class="btn btn-primary" style="padding:16px 40px; font-size:1rem;"><span class="ar-only">اشترِ الآن</span><span class="en-only">Buy Now</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ════════════════════════════════════════════════ -->
+  <footer id="footer" style="margin-top: 0; padding-top: 40px;">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="index.html" class="footer-logo">عبد المنعم<span>.</span></a>
+        <p class="footer-rights">© 2025 عبد المنعم بركاتي. جميع الحقوق محفوظة.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div id="toast"></div>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
+
+  <script src="js/content.js"></script>
+  <script>
+    // ── Navbar scroll ──────────────────────────────────────────
+    window.addEventListener("scroll", () => {
+      document.getElementById("navbar").classList.toggle("scrolled", window.scrollY > 60);
+      const bar = document.getElementById("scroll-progress");
+      if (bar) {
+        const t = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = (t > 0 ? window.scrollY / t * 100 : 0) + "%";
+      }
+    });
+
+    // ── Mobile nav ─────────────────────────────────────────────
+    const menuBtn = document.getElementById("nav-menu-btn");
+    const mobileNav = document.getElementById("nav-mobile");
+    if (menuBtn && mobileNav) {
+      menuBtn.addEventListener("click", () => {
+        const open = mobileNav.classList.toggle("open");
+        menuBtn.setAttribute("aria-expanded", open);
+        document.body.style.overflow = open ? "hidden" : "";
+      });
+    }
+
+    // ── Book 3D tilt on mouse ──────────────────────────────────
+    const bkBook = document.getElementById("bk-book");
+    if (bkBook) {
+      bkBook.parentElement.addEventListener("mousemove", e => {
+        const rect = bkBook.parentElement.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top)  / rect.height - 0.5;
+        bkBook.style.transform = `rotateY(${-18 + x * 20}deg) rotateX(${4 - y * 10}deg)`;
+        bkBook.style.animationPlayState = "paused";
+      });
+      bkBook.parentElement.addEventListener("mouseleave", () => {
+        bkBook.style.transform = "";
+        bkBook.style.animationPlayState = "running";
+      });
+    }
+
+    // ── PDF iframe fallback detection ──────────────────────────
+    // If browser blocks the iframe (e.g. file:// protocol), show fallback
+    const pdfIframe = document.getElementById("bk-pdf-iframe");
+    const pdfFallback = document.getElementById("bk-fallback");
+    if (pdfIframe) {
+      pdfIframe.addEventListener("error", () => {
+        pdfIframe.style.display = "none";
+        pdfFallback.style.display = "block";
+      });
+      // Detect file:// protocol — iframe won't load PDFs in that context
+      if (window.location.protocol === "file:") {
+        pdfIframe.style.display = "none";
+        pdfFallback.style.display = "block";
+        pdfFallback.querySelector("p").innerHTML =
+          "لعرض المعاينة، شغّل الموقع عبر خادم محلي (python3 -m http.server 8080) أو ارفعه على الإنترنت.<br/>" +
+          "<a href=\"assets/book/preview.pdf\" target=\"_blank\" style=\"color:var(--gold);\">افتح ملف PDF مباشرة</a>";
+      }
+    }
+
+    // ── Language toggle ────────────────────────────────────────
+    (function() {
+      const saved = localStorage.getItem("ab-lang") || "ar";
+      if (saved === "en") {
+        document.body.classList.remove("lang-ar");
+        document.body.classList.add("lang-en");
+        document.documentElement.setAttribute("lang", "en");
+        document.documentElement.setAttribute("dir", "ltr");
+        const arBtn = document.getElementById("lang-ar-btn");
+        const enBtn = document.getElementById("lang-en-btn");
+        if (arBtn) arBtn.classList.remove("active");
+        if (enBtn) enBtn.classList.add("active");
+      }
+    })();
+
+    const langToggle = document.getElementById("lang-toggle");
+    if (langToggle) {
+      langToggle.addEventListener("click", () => {
+        const isAr = document.body.classList.contains("lang-ar");
+        const next = isAr ? "en" : "ar";
+        document.body.classList.toggle("lang-ar", !isAr);
+        document.body.classList.toggle("lang-en", isAr);
+        document.documentElement.setAttribute("lang", next);
+        document.documentElement.setAttribute("dir", isAr ? "ltr" : "rtl");
+        document.getElementById("lang-ar-btn").classList.toggle("active", !isAr);
+        document.getElementById("lang-en-btn").classList.toggle("active", isAr);
+        localStorage.setItem("ab-lang", next);
+      });
+    }
+  </script>
+</body>
+</html>
