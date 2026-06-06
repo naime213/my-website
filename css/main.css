@@ -3536,3 +3536,6 @@ body.lang-ar .form-label { left: auto; right: 0; }
     padding: 0 !important;
   }
 }
+
+/* ─── Reduce background glow all devices ────────────────────── */
+.hero-bg-circle { opacity: 0.04 !important; }
