@@ -692,11 +692,10 @@
   const bookPreviewModal   = document.getElementById('bookPreviewModal');
   const bookPreviewClose   = document.getElementById('bookPreviewClose');
   const bookPreviewBackdrop = document.getElementById('bookPreviewBackdrop');
-  const bookPreviewIframe  = document.getElementById('bookPreviewIframe');
-
   function openBookPreview() {
     if (!bookPreviewModal) return;
-    bookPreviewIframe.src = 'assets/book/preview.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH';
+    bookCurrentSlide = 0;
+    bookGoTo(0);
     bookPreviewModal.classList.add('is-open');
     document.body.style.overflow = 'hidden';
   }
