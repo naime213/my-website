@@ -3485,3 +3485,17 @@ body.lang-ar .form-label { left: auto; right: 0; }
   .film-modal-poster { width: 100%; min-height: 200px; border-radius: 7px 7px 0 0; }
   .film-modal-content { padding: 20px; }
 }
+
+/* ─── Hero Mobile Polish ─────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .hero-inner { text-align: center; align-items: center; }
+  .hero-inner .hero-content { text-align: center; align-items: center; width: 100%; padding: 0 32px; }
+  .hero-name { font-size: clamp(1.8rem, 7vw, 2.4rem) !important; text-align: center; }
+  .hero-tagline { display: none; }
+  .hero-scroll { display: none !important; }
+  .hero-greeting { justify-content: center !important; text-align: center; width: 100%; }
+  .hero-title { text-align: center; }
+  .hero-subtitle { text-align: center; }
+  body.lang-ar .hero-content { text-align: center !important; align-items: center; }
+  body.lang-ar .hero-name { text-align: center !important; }
+}
