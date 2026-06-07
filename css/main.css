@@ -1287,7 +1287,7 @@ body.lang-ar .hero-name {
   text-align-last: right;
 }
 body.lang-en .about-bio {
-  text-align: justify;
+  text-align: left;
   text-align-last: left;
 }
 
