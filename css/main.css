@@ -3553,3 +3553,13 @@ body.lang-ar .form-label { left: auto; right: 0; }
 .book-slide-dots { position: absolute; bottom: 8px; width: 100%; display: flex; justify-content: center; gap: 8px; }
 .book-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(201,168,76,0.3); cursor: pointer; transition: background 0.2s; }
 .book-dot.active { background: var(--gold); }
+
+/* ─── About bio justified text ───────────────────────────────── */
+.about-bio {
+  text-align: justify !important;
+  text-align-last: center;
+}
+body.lang-en .about-bio {
+  text-align: justify !important;
+  text-align-last: left;
+}
