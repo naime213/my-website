@@ -218,6 +218,11 @@ body.lang-ar .section-num { left: auto; right: 0; }
   z-index: 4;
   pointer-events: none;
 }
+
+@media (max-width: 600px) {
+  .film-reel::before,
+  .film-reel::after { width: 40px; }
+}
 .film-reel::before {
   left: 0;
   background: linear-gradient(to right, var(--bg-dark) 20%, transparent);
