@@ -761,8 +761,9 @@ function bookSlide(dir) { bookGoTo(bookCurrentSlide + dir); }
     const modal = document.getElementById('bookPreviewModal');
     if (modal && modal.classList.contains('is-open')) {
       const diff = startX - e.changedTouches[0].clientX;
+      const isRTL = document.body.classList.contains('lang-ar');
       if (Math.abs(diff) > 50) {
-        bookSlide(diff > 0 ? 1 : -1);
+        bookSlide(isRTL ? (diff > 0 ? -1 : 1) : (diff > 0 ? 1 : -1));
       }
     }
   }, { passive: true });
