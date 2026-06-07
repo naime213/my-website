@@ -3591,3 +3591,9 @@ body.lang-en .about-bio {
     overflow: hidden !important;
   }
 }
+
+/* ─── Contact top header ─────────────────────────────────────── */
+.contact-top {
+  text-align: center;
+  margin-bottom: 40px;
+}
