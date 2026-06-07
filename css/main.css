@@ -3569,3 +3569,25 @@ body.lang-en .about-bio {
   text-align: justify !important;
   text-align-last: left;
 }
+
+/* ─── Contact section mobile RTL fix ────────────────────────── */
+@media (max-width: 1024px) {
+  body.lang-ar .contact-grid {
+    grid-template-columns: 1fr !important;
+    padding: 0 24px !important;
+  }
+  body.lang-ar .contact-title {
+    text-align: right !important;
+    width: 100% !important;
+    overflow: visible !important;
+  }
+  body.lang-ar .contact-subtitle {
+    text-align: right !important;
+    width: 100% !important;
+  }
+  body.lang-ar #contact {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    overflow: hidden !important;
+  }
+}
