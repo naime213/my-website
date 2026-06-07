@@ -747,3 +747,23 @@ function bookGoTo(n) {
   dots[bookCurrentSlide].classList.add('active');
 }
 function bookSlide(dir) { bookGoTo(bookCurrentSlide + dir); }
+
+// Book preview touch swipe
+(function() {
+  let startX = 0;
+  document.addEventListener('touchstart', function(e) {
+    const modal = document.getElementById('bookPreviewModal');
+    if (modal && modal.classList.contains('is-open')) {
+      startX = e.touches[0].clientX;
+    }
+  }, { passive: true });
+  document.addEventListener('touchend', function(e) {
+    const modal = document.getElementById('bookPreviewModal');
+    if (modal && modal.classList.contains('is-open')) {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) {
+        bookSlide(diff > 0 ? 1 : -1);
+      }
+    }
+  }, { passive: true });
+})();
